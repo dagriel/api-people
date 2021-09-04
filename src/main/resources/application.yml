@@ -1,0 +1,79 @@
+## active Profile
+spring:
+  profiles:
+    active: dev
+  application:
+    name: person-api
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+application:
+  description: 'Projeto criado para o bootcamp DIO - Santander'
+  version: 1.0
+
+---
+################################ DEV ################################
+spring:
+  #active Profile
+  profiles: dev
+  # JPA
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      #none, validate, update, create, create-drop
+  # H2 Console - Default
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  # H2 Datasource
+  datasource:
+    #url: jdbc:h2:file:~/testdb
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+# logging level
+logging:
+  level:
+    root: warn
+    web: debug
+    SQL: error
+## Port
+server:
+  port: 8080
+## active debug
+debug: true
+
+---
+################################ PROD ################################
+## active Profile
+spring:
+  profiles: prod
+  ## JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  # DEV TOOLS
+  devtools:
+    add-properties: false
+    livereload:
+      enabled: false
+
+---
+################################ TEST ################################
+#debug=true
+## active Profile
+spring:
+  profiles: test
+  # JPA
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+## Port
+server:
+  port: 8080

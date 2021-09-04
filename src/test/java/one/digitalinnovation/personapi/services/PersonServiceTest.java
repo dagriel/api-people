@@ -1,6 +1,6 @@
 package one.digitalinnovation.personapi.services;
 
-import one.digitalinnovation.personapi.dto.mapper.PersonMapper;
+import one.digitalinnovation.personapi.mapper.PersonMapper;
 import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 import one.digitalinnovation.personapi.entities.Person;
